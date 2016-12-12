@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
-
+using DM.MovieApi;
 using Xamarin.Forms;
 
 namespace vika3
@@ -38,6 +38,7 @@ namespace vika3
 
         public GreetingPage()
         {
+
             BackgroundColor = Color.Teal;
             Title = "Welcome to Movie Search";
             Content = new StackLayout
@@ -64,9 +65,12 @@ namespace vika3
             _movieSearchEntry.Completed += DisplayMovie;
         }
 
-        private void DisplayMovie(object sender, EventArgs e)
+        private async void DisplayMovie(object sender, EventArgs e)
         {
-            _movieResult.Text = _movieSearchEntry.Text;
+            var movieApi = MovieDbFactory.Create<DM.MovieApi.MovieDb.Movies.IApiMovieRequest>().Value;
+            DM.MovieApi.ApiResponse.ApiSearchResponse<DM.MovieApi.MovieDb.Movies.MovieInfo> response = await movieApi.SearchByTitleAsync(_movieSearchEntry.Text);
+
+            _movieResult.Text = response.Results[0].Title;
             _movieSearchEntry.Text = string.Empty;
         }
     }
