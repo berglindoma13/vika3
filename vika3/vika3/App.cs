@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using DM.MovieApi;
 using Xamarin.Forms;
 
 namespace vika3
@@ -11,6 +11,7 @@ namespace vika3
     {
         public App()
         {
+            MovieDbFactory.RegisterSettings(new ApiConnectionClass());
             // The root page of your application
             var content = new GreetingPage();
 
