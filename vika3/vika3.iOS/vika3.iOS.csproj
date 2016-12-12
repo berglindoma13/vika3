@@ -136,6 +136,12 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="DM.MovieApi">
+      <HintPath>..\..\packages\TheMovieDbWrapper.0.8.1\lib\netstandard1.1\DM.MovieApi.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\vika3\vika3.csproj">
