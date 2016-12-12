@@ -37,8 +37,13 @@ namespace vika3
 		{
 			HorizontalOptions = LayoutOptions.Fill,
 			Placeholder = "Movie word",
-			Keyboard = Keyboard.Default
         };
+
+		private ActivityIndicator _progressBar = new ActivityIndicator
+		{
+			Color = Color.White,
+			IsRunning = false
+		};
 
         public GreetingPage()
         {
@@ -60,6 +65,7 @@ namespace vika3
                             }
                         },
                         _searchButton,
+						_progressBar,
                         _movieResult
                 }   
             };
@@ -70,8 +76,12 @@ namespace vika3
 
         private async void DisplayMovie(object sender, EventArgs e)
         {
+			_progressBar.IsRunning = true;
+
             var movieApi = MovieDbFactory.Create<DM.MovieApi.MovieDb.Movies.IApiMovieRequest>().Value;
-            DM.MovieApi.ApiResponse.ApiSearchResponse<DM.MovieApi.MovieDb.Movies.MovieInfo> response = await movieApi.SearchByTitleAsync(_movieSearchEntry.Text);
+			DM.MovieApi.ApiResponse.ApiSearchResponse<DM.MovieApi.MovieDb.Movies.MovieInfo> response = await movieApi.SearchByTitleAsync(_movieSearchEntry.Text);
+
+			_progressBar.IsRunning = false;
 
             _movieResult.Text = response.Results[0].Title;
             _movieSearchEntry.Text = string.Empty;
