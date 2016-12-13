@@ -10,11 +10,13 @@ namespace vika3
 {
     public class GreetingPage : ContentPage
     {
+		private Movies _movies;
+
 		private Button _searchButton = new Button()
 		{
 			Text = "Get movies",
-			BackgroundColor = Color.Gray,
-			TextColor = Color.White,
+			BackgroundColor = Color.White,
+			TextColor = Color.Gray,
             HorizontalOptions = LayoutOptions.Fill
         };
 
@@ -45,10 +47,12 @@ namespace vika3
 			IsRunning = false
 		};
 
-        public GreetingPage()
+		public GreetingPage(Movies movies)
         {
+			_movies = movies;
+
             BackgroundColor = Color.Teal;
-            Title = "Welcome to Movie Search";
+            Title = "Movie Search";
             Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.Start,
@@ -70,21 +74,62 @@ namespace vika3
                 }   
             };
 
-            _searchButton.Clicked += DisplayMovie;
-            _movieSearchEntry.Completed += DisplayMovie;
+			_searchButton.Clicked += DisplayMovie;
+			_movieSearchEntry.Completed += DisplayMovie;
+
+			/*_searchButton.Clicked += async (sender, e) =>
+			{
+				_progressBar.IsRunning = true;
+
+				var movieApi = MovieDbFactory.Create<DM.MovieApi.MovieDb.Movies.IApiMovieRequest>().Value;
+				DM.MovieApi.ApiResponse.ApiSearchResponse<DM.MovieApi.MovieDb.Movies.MovieInfo> response = await movieApi.SearchByTitleAsync(_movieSearchEntry.Text);
+
+				if (response != null)
+				{
+					foreach (var i in response.Results)
+					{
+
+						var resp = await movieApi.GetCreditsAsync(i.Id);
+						var response2 = await movieApi.FindByIdAsync(i.Id);
+						var tmpmovie = new Movie();
+
+						_movies.AddMovie(i, resp, response2, tmpmovie);
+					}
+				}
+
+				await this.Navigation.PushAsync(new MovieListPage() { BindingContext = this._movies});
+
+				_progressBar.IsRunning = false;
+			};*/
         }
 
-        private async void DisplayMovie(object sender, EventArgs e)
+		private async void DisplayMovie(object sender, EventArgs e)
         {
 			_progressBar.IsRunning = true;
+			_searchButton.IsEnabled = false;
+
+			_movies.AllMovies.Clear();
 
             var movieApi = MovieDbFactory.Create<DM.MovieApi.MovieDb.Movies.IApiMovieRequest>().Value;
 			DM.MovieApi.ApiResponse.ApiSearchResponse<DM.MovieApi.MovieDb.Movies.MovieInfo> response = await movieApi.SearchByTitleAsync(_movieSearchEntry.Text);
 
-			_progressBar.IsRunning = false;
+            if (response != null)
+			{
+				foreach (var i in response.Results)
+				{
 
-            _movieResult.Text = response.Results[0].Title;
-            _movieSearchEntry.Text = string.Empty;
+					var resp = await movieApi.GetCreditsAsync(i.Id);
+					var response2 = await movieApi.FindByIdAsync(i.Id);
+					var tmpmovie = new Movie();
+
+					_movies.AddMovie(i, resp, response2, tmpmovie);
+				}
+			}
+
+			await this.Navigation.PushAsync(new MovieListPage() { BindingContext = this._movies });
+
+			_progressBar.IsRunning = false;
+			_searchButton.IsEnabled = true;
         }
     }
 }

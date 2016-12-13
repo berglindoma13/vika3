@@ -13,7 +13,7 @@ namespace vika3
         {
             MovieDbFactory.RegisterSettings(new ApiConnectionClass());
             // The root page of your application
-            var content = new GreetingPage();
+			var content = new GreetingPage(new Movies());
 
             MainPage = new NavigationPage(content);
         }

@@ -16,5 +16,13 @@ namespace vika3
 		public int Runtime { get; set; }
 		public string Genre { get; set; }
 		public string Review { get; set; }
+
+		public string TitleYear => Title + " (" + Year + ")";
+
+		public override string ToString()
+		{
+			return Title + " (" + Year + ")";
+		}
+
 	}
 }
