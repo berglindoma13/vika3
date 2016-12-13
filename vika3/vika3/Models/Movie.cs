@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace vika3
 {
+	using Xamarin.Forms;
 	public class Movie
 	{
 		public int Id { get; set; }

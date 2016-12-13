@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="vika3.MovieListPage" Title="Name list">
-	<ListView x:Name="listview" ItemsSource="{Binding AllMovies}" HasUnevenRows="True" ItemSelected="Listview_OnItemSelected">
+	<ListView x:Name="listview" ItemsSource="{Binding AllMovies}" HasUnevenRows="true" ItemSelected="Listview_OnItemSelected">
 		 <ListView.ItemTemplate >
-		      <DataTemplate>
+		     <DataTemplate>
 		        <ViewCell>
 		          <Grid Padding="10,5">
 		            <Grid.RowDefinitions>
-		              <RowDefinition Height="Auto"></RowDefinition>
-		              <RowDefinition Height="*"></RowDefinition>
+		              <RowDefinition Height="15"></RowDefinition>
+		              <RowDefinition Height="15"></RowDefinition>
 		            </Grid.RowDefinitions>
 		            <Grid.ColumnDefinitions>
 		              <ColumnDefinition Width="*"></ColumnDefinition>
@@ -17,14 +17,17 @@
 		                   Text="{Binding TitleYear}"
 		                   FontAttributes="Bold"
 		                   FontSize="Medium"
-		                   TextColor="#1f03e1"/>
+		                   TextColor="#1f03e1"
+							LineBreakMode="TailTruncation"/>
 		            <Label Grid.Row="1" Grid.Column="0"
 		                   Text="{Binding Actors}"
-		                   FontSize="Small"/>
+		                   FontSize="Small"
+							LineBreakMode="TailTruncation"/>
+					<Image Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
+                   			Source="{Binding ImageName}" />
 		          </Grid>
 		        </ViewCell>
-		        
-		      </DataTemplate>
+		     </DataTemplate>
 		</ListView.ItemTemplate>
 	</ListView>
 </ContentPage>

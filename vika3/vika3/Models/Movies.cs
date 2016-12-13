@@ -52,14 +52,22 @@ namespace vika3
 
 			if (i == null)
 			{
-				tmpmovie.ImageName = "not_found";
+				tmpmovie.ImageName = "https://az853139.vo.msecnd.net/static/images/not-found.png";
 				tmpmovie.Id = 0;
 				tmpmovie.Year = 0;
 				tmpmovie.Title = "Title not found!";
 			}
 			else
 			{
-				tmpmovie.ImageName = i.PosterPath ?? "not_found";
+				string ImageUrl = "http://image.tmdb.org/t/p/w92";
+				if (i.PosterPath == null)
+				{
+					tmpmovie.ImageName = "https://az853139.vo.msecnd.net/static/images/not-found.png";
+				}
+				else 
+				{
+					tmpmovie.ImageName = ImageUrl + i.PosterPath;
+				}
 				tmpmovie.Id = i.Id;
 				tmpmovie.Year = i.ReleaseDate.Year;
 				tmpmovie.Title = i.Title ?? "Title not found!";
