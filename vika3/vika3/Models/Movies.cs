@@ -60,13 +60,16 @@ namespace vika3
 			else
 			{
 				string ImageUrl = "http://image.tmdb.org/t/p/w92";
-				if (i.PosterPath == null)
+			    string OriginalUrl = "http://image.tmdb.org/t/p/original";
+
+                if (i.PosterPath == null)
 				{
 					tmpmovie.ImageName = "https://az853139.vo.msecnd.net/static/images/not-found.png";
 				}
 				else 
 				{
 					tmpmovie.ImageName = ImageUrl + i.PosterPath;
+				    tmpmovie.OriginalImageName = OriginalUrl + i.PosterPath;
 				}
 				tmpmovie.Id = i.Id;
 				tmpmovie.Year = i.ReleaseDate.Year;

@@ -13,12 +13,15 @@ namespace vika3
 		public string Title { get; set; }
 		public int Year { get; set; }
 		public string ImageName { get; set; }
+        public string OriginalImageName { get; set; }
 		public string Actors { get; set; }
 		public int Runtime { get; set; }
 		public string Genre { get; set; }
 		public string Review { get; set; }
 
 		public string TitleYear => Title + " (" + Year + ")";
+
+	    public string RuntimeGenre => Runtime + " | " + Genre;
 
 		public override string ToString()
 		{
