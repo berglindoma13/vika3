@@ -76,31 +76,6 @@ namespace vika3
 
 			_searchButton.Clicked += DisplayMovie;
 			_movieSearchEntry.Completed += DisplayMovie;
-
-			/*_searchButton.Clicked += async (sender, e) =>
-			{
-				_progressBar.IsRunning = true;
-
-				var movieApi = MovieDbFactory.Create<DM.MovieApi.MovieDb.Movies.IApiMovieRequest>().Value;
-				DM.MovieApi.ApiResponse.ApiSearchResponse<DM.MovieApi.MovieDb.Movies.MovieInfo> response = await movieApi.SearchByTitleAsync(_movieSearchEntry.Text);
-
-				if (response != null)
-				{
-					foreach (var i in response.Results)
-					{
-
-						var resp = await movieApi.GetCreditsAsync(i.Id);
-						var response2 = await movieApi.FindByIdAsync(i.Id);
-						var tmpmovie = new Movie();
-
-						_movies.AddMovie(i, resp, response2, tmpmovie);
-					}
-				}
-
-				await this.Navigation.PushAsync(new MovieListPage() { BindingContext = this._movies});
-
-				_progressBar.IsRunning = false;
-			};*/
         }
 
 		private async void DisplayMovie(object sender, EventArgs e)
@@ -130,6 +105,7 @@ namespace vika3
 
 			_progressBar.IsRunning = false;
 			_searchButton.IsEnabled = true;
+			_movieSearchEntry.Text = "";
         }
     }
 }
