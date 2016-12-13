@@ -101,7 +101,14 @@ namespace vika3
 				}
 			}
 
-			await this.Navigation.PushAsync(new MovieListPage() { BindingContext = this._movies });
+			if (this._movies.AllMovies.Count == 0)
+			{
+				await DisplayAlert("No results", string.Empty, "Ok");
+			}
+			else
+			{
+				await this.Navigation.PushAsync(new MovieListPage() { BindingContext = this._movies });
+			}
 
 			_progressBar.IsRunning = false;
 			_searchButton.IsEnabled = true;

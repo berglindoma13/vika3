@@ -21,7 +21,7 @@ namespace vika3
 
 		public string TitleYear => Title + " (" + Year + ")";
 
-	    public string RuntimeGenre => Runtime + " | " + Genre;
+	    public string RuntimeGenre => Runtime + " min | " + Genre;
 
 		public override string ToString()
 		{
