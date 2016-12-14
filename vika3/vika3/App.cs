@@ -22,10 +22,12 @@ namespace vika3
             var topRated = new MovieListPage();
             var topRatedNavigationPage = new NavigationPage(topRated);
             topRatedNavigationPage.Title = "Top rated";
+            topRatedNavigationPage.Icon = "toprated";
 
             var popularMovies = new PopularMoviesPage();
             var popularMoviesNavigationPage = new NavigationPage(popularMovies);
             popularMoviesNavigationPage.Title = "Popular";
+            popularMoviesNavigationPage.Icon = "popular";
             
 
 
