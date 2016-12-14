@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ using Xamarin.Forms;
 namespace vika3
 {
     
-    public class TopRated : ContentPage
+    public class TopRated : TabbedPage
     {
         private Movies _TopRatedMovies;
         private ActivityIndicator _progressBar = new ActivityIndicator
@@ -21,6 +22,12 @@ namespace vika3
 
         public TopRated()
         {
+            _TopRatedMovies = new Movies();        
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
             TopRatedMovies();
         }
 

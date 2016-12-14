@@ -25,6 +25,8 @@ namespace vika3
             tabbedPage.Children.Add(greetingNavigationPage);
             tabbedPage.Children.Add(topRatedNavigationPage);
 
+            
+
             MainPage = tabbedPage;
         }
 
