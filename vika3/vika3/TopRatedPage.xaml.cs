@@ -17,9 +17,9 @@ namespace vika3
             InitializeComponent();
         }
 
-        protected override async void OnAppearing()
+        public async void TopRatedMovies()
         {
-            base.OnAppearing();
+
             Spinner.IsRunning = true;
             //populate list
             _TopRatedMovies.AllMovies.Clear();
@@ -40,7 +40,8 @@ namespace vika3
             }
 
 
-           this.Spinner.IsRunning = false;
+            Spinner.IsRunning = false;
+            //Render list as movieListPage
         }
 
         private void Listview_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
