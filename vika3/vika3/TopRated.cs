@@ -31,7 +31,7 @@ namespace vika3
             TopRatedMovies();
         }
 
-        private async void TopRatedMovies()
+        public async void TopRatedMovies()
         {
 
             _progressBar.IsRunning = true;
@@ -55,7 +55,6 @@ namespace vika3
 
 
             _progressBar.IsRunning = false;
-
             //Render list as movieListPage
             await this.Navigation.PushAsync(new MovieListPage() { BindingContext = this._TopRatedMovies });
         }

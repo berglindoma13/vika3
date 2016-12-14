@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace vika3
 {
-    public partial class TopRatedPage : ContentPage
+    public partial class TopRatedPage
     {
         private Movies _TopRatedMovies;
         public TopRatedPage()
@@ -20,7 +20,7 @@ namespace vika3
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            this.Spinner.IsRunning = true;
+            Spinner.IsRunning = true;
             //populate list
             _TopRatedMovies.AllMovies.Clear();
 
