@@ -18,18 +18,21 @@ namespace vika3.iOS.Renderers
             {
                 for (int i = 0; i < TabBar.Items.Length; i++)
                 {
-                    UpdateItem(TabBar.Items[i]);
+                    UpdateItem(TabBar.Items[i], tabs.Children[i].Icon);
                 }
             }
+
+            base.ViewWillAppear(animated);
         }
 
-        private void UpdateItem(UITabBarItem item)
+        private void UpdateItem(UITabBarItem item, string icon)
         {
             if (item == null)
             {
                 return;
             }
-            item = new UITabBarItem(UITabBarSystemItem.Search,0);
+            item.SelectedImage = UIImage.FromBundle(icon);
+            item.SelectedImage.AccessibilityIdentifier = icon;
         }
         
     }

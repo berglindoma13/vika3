@@ -16,6 +16,7 @@ namespace vika3
 			var content = new GreetingPage(new Movies());
             var greetingNavigationPage = new NavigationPage(content);
             greetingNavigationPage.Title = "Movie Search";
+            greetingNavigationPage.Icon = "Search";
             
 
             var topRated = new MovieListPage();
@@ -25,6 +26,8 @@ namespace vika3
             var popularMovies = new PopularMoviesPage();
             var popularMoviesNavigationPage = new NavigationPage(popularMovies);
             popularMoviesNavigationPage.Title = "Popular";
+            
+
 
             var tabbedPage = new TabbedPage();
             tabbedPage.Children.Add(greetingNavigationPage);
