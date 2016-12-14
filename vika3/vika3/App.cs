@@ -17,7 +17,7 @@ namespace vika3
             var greetingNavigationPage = new NavigationPage(content);
             greetingNavigationPage.Title = "Movies";
 
-            var topRated = new TopRated();
+            var topRated = new TopRatedPage();
             var topRatedNavigationPage = new NavigationPage(topRated);
             topRatedNavigationPage.Title = "Top rated Movies";
 

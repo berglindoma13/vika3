@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using DM.MovieApi;
@@ -10,31 +8,19 @@ using Xamarin.Forms;
 
 namespace vika3
 {
-    
-    public class TopRated : TabbedPage
+    public partial class TopRatedPage : ContentPage
     {
         private Movies _TopRatedMovies;
-        private ActivityIndicator _progressBar = new ActivityIndicator
-        {
-            Color = Color.White,
-            IsRunning = false
-        };
-
-        public TopRated()
+        public TopRatedPage()
         {
             _TopRatedMovies = new Movies();
+            InitializeComponent();
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
-            TopRatedMovies();
-        }
-
-        private async void TopRatedMovies()
-        {
-
-            _progressBar.IsRunning = true;
+            this.Spinner.IsRunning = true;
             //populate list
             _TopRatedMovies.AllMovies.Clear();
 
@@ -54,11 +40,17 @@ namespace vika3
             }
 
 
-            _progressBar.IsRunning = false;
-
-            //Render list as movieListPage
-            await this.Navigation.PushAsync(new MovieListPage() { BindingContext = this._TopRatedMovies });
+           this.Spinner.IsRunning = false;
         }
-       
+
+        private void Listview_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null)
+            {
+                return;
+            }
+            this.Navigation.PushAsync(new DetailsPage() { BindingContext = e.SelectedItem });
+            ((ListView)sender).SelectedItem = null;
+        }
     }
 }
