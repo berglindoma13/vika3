@@ -18,7 +18,7 @@ namespace vika3
             greetingNavigationPage.Title = "Movies";
             
 
-            var topRated = new TopRatedPage();
+            var topRated = new MovieListPage();
             var topRatedNavigationPage = new NavigationPage(topRated);
             topRatedNavigationPage.Title = "Top rated Movies";
 
@@ -26,11 +26,13 @@ namespace vika3
             tabbedPage.Children.Add(greetingNavigationPage);
             tabbedPage.Children.Add(topRatedNavigationPage);
 
-
-            if (tabbedPage.SelectedItem == topRated)
+            tabbedPage.CurrentPageChanged += async (sender, e) =>
             {
-                topRated.TopRatedMovies();
-            }
+                if (tabbedPage.CurrentPage == topRatedNavigationPage)
+                {
+                    await topRated.TopRatedMovies();
+                }
+            };
 
             MainPage = tabbedPage;
         }
