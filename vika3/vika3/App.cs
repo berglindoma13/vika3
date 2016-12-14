@@ -14,8 +14,18 @@ namespace vika3
             MovieDbFactory.RegisterSettings(new ApiConnectionClass());
             // The root page of your application
 			var content = new GreetingPage(new Movies());
+            var greetingNavigationPage = new NavigationPage(content);
+            greetingNavigationPage.Title = "Movies";
 
-            MainPage = new NavigationPage(content);
+            var topRated = new TopRatedPage();
+            var topRatedNavigationPage = new NavigationPage(topRated);
+            topRatedNavigationPage.Title = "Top rated Movies";
+
+            var tabbedPage = new TabbedPage();
+            tabbedPage.Children.Add(greetingNavigationPage);
+            tabbedPage.Children.Add(topRatedNavigationPage);
+
+            MainPage = tabbedPage;
         }
 
         protected override void OnStart()

@@ -19,6 +19,7 @@ namespace vika3
 				return;
 			}
             this.Navigation.PushAsync(new DetailsPage() { BindingContext = e.SelectedItem });
-        }
+		    ((ListView) sender).SelectedItem = null;
+		}
 	}
 }
