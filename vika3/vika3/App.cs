@@ -39,6 +39,7 @@ namespace vika3
 
             tabbedPage.CurrentPageChanged += async (sender, e) =>
             {
+				tabbedPage.IsEnabled = false;
                 if (tabbedPage.CurrentPage == topRatedNavigationPage)
                 {
                     await topRated.TopRatedMovies();
@@ -47,6 +48,7 @@ namespace vika3
                 {
                     await popularMovies.PopularMovies();
                 }
+				tabbedPage.IsEnabled = true;
             };
 
             MainPage = tabbedPage;

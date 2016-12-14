@@ -102,9 +102,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Search.png" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="PopularMoviesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>

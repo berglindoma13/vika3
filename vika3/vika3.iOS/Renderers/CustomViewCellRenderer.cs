@@ -13,10 +13,19 @@ namespace vika3.iOS.Renderers
     {
         public override UITableViewCell GetCell(Cell item, UITableViewCell reusableCell, UITableView tv)
         {
-            var cell = base.GetCell(item, reusableCell, tv);
-            cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
+			if (item.GetType().ToString() == typeof(ViewCell).ToString())
+			{
+				var cell = base.GetCell(item, reusableCell, tv);
+				cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
 
-            return cell;
+				return cell;
+			}
+			else
+			{
+				var cell = base.GetCell(item, reusableCell, tv);
+
+				return cell;
+			}
         }
     }
 }

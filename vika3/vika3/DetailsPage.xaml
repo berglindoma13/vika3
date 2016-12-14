@@ -14,16 +14,34 @@
       <Label
         Margin="4"
         Text="{Binding TitleYear}"
-        Font="Large"
-        TextColor="White"/>
+        FontSize="Large"
+        TextColor="White">
+				<Label.FontFamily>
+			        <OnPlatform x:TypeArguments="x:String">
+			            <OnPlatform.iOS>AmericanTypewriter</OnPlatform.iOS>
+			            <OnPlatform.Android>serif</OnPlatform.Android>
+			            <OnPlatform.WinPhone></OnPlatform.WinPhone>
+			        </OnPlatform>
+			    </Label.FontFamily>
+	</Label>
       <Label
         Margin="4"
         Text="{Binding RuntimeGenre}"
-        TextColor="White"/>
+		FontSize="Medium"
+        TextColor="White">
+					<Label.FontFamily>
+				        <OnPlatform x:TypeArguments="x:String">
+				            <OnPlatform.iOS>AmericanTypewriter</OnPlatform.iOS>
+				            <OnPlatform.Android>serif</OnPlatform.Android>
+				            <OnPlatform.WinPhone></OnPlatform.WinPhone>
+				        </OnPlatform>
+				    </Label.FontFamily>
+		</Label>
       <Label
         Margin="4"
         Text="{Binding Review}"
-        TextColor="White"/>
+        TextColor="White"
+		FontSize="Small"/>
 
     </StackLayout>
   </ScrollView>

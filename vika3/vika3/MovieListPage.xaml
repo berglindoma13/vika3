@@ -11,6 +11,7 @@
              Color = "Black"
              IsRunning="False"
              IsVisible="False"
+				Margin="20"
             />
     <ListView
       x:Name="listview"
@@ -37,13 +38,29 @@
                 FontAttributes="Bold"
                 FontSize="Medium"
                 TextColor="#1f03e1"
-                LineBreakMode="TailTruncation"/>
+                LineBreakMode="TailTruncation">
+							<Label.FontFamily>
+						        <OnPlatform x:TypeArguments="x:String">
+						            <OnPlatform.iOS>AmericanTypewriter</OnPlatform.iOS>
+						            <OnPlatform.Android>serif</OnPlatform.Android>
+						            <OnPlatform.WinPhone></OnPlatform.WinPhone>
+						        </OnPlatform>
+						    </Label.FontFamily>
+				</Label>
               <Label
                 Grid.Row="1"
                 Grid.Column="0"
                 Text="{Binding Actors}"
                 FontSize="Small"
-                LineBreakMode="TailTruncation"/>
+                LineBreakMode="TailTruncation">
+							<Label.FontFamily>
+						        <OnPlatform x:TypeArguments="x:String">
+						            <OnPlatform.iOS>AmericanTypewriter</OnPlatform.iOS>
+						            <OnPlatform.Android>serif</OnPlatform.Android>
+						            <OnPlatform.WinPhone></OnPlatform.WinPhone>
+						        </OnPlatform>
+						    </Label.FontFamily>
+				</Label>
               <Image
                 Grid.Row="0"
                 Grid.Column="1"

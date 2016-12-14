@@ -1,15 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="vika3.PopularMoviesPage"
-		xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
+		xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+		BackgroundColor="Teal">
   <StackLayout>
     <ActivityIndicator
       x:Name = "Spinner"
       Color = "Black"
       IsRunning="False"
       IsVisible="False"
+	Margin="20"
     />
     <flv:FlowListView SeparatorVisibility="None" HasUnevenRows="true"
-      FlowColumnMinWidth="110" FlowItemsSource="{Binding AllMovies}" x:Name="flowlistview">
+      FlowColumnMinWidth="110" FlowItemsSource="{Binding AllMovies}" x:Name="flowlistview" BackgroundColor="Teal">
 
       <flv:FlowListView.FlowColumnTemplate>
         <DataTemplate>
@@ -22,12 +24,14 @@
               <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <ffimageloading:CachedImage HeightRequest="200" Aspect="AspectFill"
-              DownsampleHeight="100" DownsampleUseDipUnits="false"
-              Source="{Binding ImageName}"/>
+            <Image HeightRequest="200" 
+					Aspect="AspectFill"
+              		
+              		Source="{Binding ImageName}"/>
+							
 
             <Label x:Name="Label" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="End"
-              BackgroundColor="Silver" TextColor ="Black" Opacity="0.5" Text="{Binding Title}"/>
+              BackgroundColor="Silver" TextColor ="Black" Opacity="0.5" Text="{Binding Title}" FontSize="Small"/>
           </Grid>
         </DataTemplate>
       </flv:FlowListView.FlowColumnTemplate>
