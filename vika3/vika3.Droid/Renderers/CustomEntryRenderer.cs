@@ -14,7 +14,7 @@ using vika3.Droid.Renderers;
 using Xamarin.Forms;
 
 [assembly: ExportRenderer(typeof(Entry), typeof(CustomEntryRenderer))]
-namespace XFHelloWorld.Droid.Renderers
+namespace vika3.Droid.Renderers
 {
     using Xamarin.Forms.Platform.Android;
 
