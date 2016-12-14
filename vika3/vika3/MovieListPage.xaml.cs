@@ -18,8 +18,6 @@ namespace vika3
 			{
 				return;
 			}
-
-			//this.DisplayAlert(e.SelectedItem.ToString(), string.Empty, "Ok");
             this.Navigation.PushAsync(new DetailsPage() { BindingContext = e.SelectedItem });
         }
 	}
