@@ -19,7 +19,12 @@ namespace vika3
             IsRunning = false
         };
 
-        public async void TopRatedMovies()
+        public TopRated()
+        {
+            TopRatedMovies();
+        }
+
+        private async void TopRatedMovies()
         {
             _progressBar.IsRunning = true;
             //populate list
