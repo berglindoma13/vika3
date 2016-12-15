@@ -8,14 +8,14 @@
 
   <Identity
     Name="213a0464-b4ad-4d5d-be7c-37c9c6fbf3a5"
-    Publisher="CN=Berglind"
+    Publisher="CN=Berglind & Vilhjalmur"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="213a0464-b4ad-4d5d-be7c-37c9c6fbf3a5" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>vika3.UWP</DisplayName>
-    <PublisherDisplayName>Berglind</PublisherDisplayName>
+    <DisplayName>TMDB</DisplayName>
+    <PublisherDisplayName>Berglind & VilhjAlmur</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -32,10 +32,10 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="vika3.UWP.App">
       <uap:VisualElements
-        DisplayName="vika3.UWP"
+        DisplayName="TMDB"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="vika3.UWP"
+        Description="TMDB"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
