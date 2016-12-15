@@ -22,17 +22,29 @@ namespace vika3
 
         private Label _movieResult = new Label()
         {
-            Text = string.Empty,
-			TextColor = Color.White,
+            HorizontalOptions = LayoutOptions.Center,
+			HorizontalTextAlignment = TextAlignment.Center,
+			Text = string.Empty,
+			TextColor = Color.Red,
         };
+
+		private Label _please = new Label()
+		{
+			HorizontalOptions = LayoutOptions.Center,
+			HorizontalTextAlignment = TextAlignment.Center,
+			TextColor = Color.White,
+			Text = "Please",
+			FontSize = 60,
+			FontAttributes = FontAttributes.Bold
+		};
 
         private Label _greeting = new Label()
         {
-            HorizontalOptions = LayoutOptions.Start,
+			HorizontalOptions = LayoutOptions.Center,
             HorizontalTextAlignment = TextAlignment.Center,
 			TextColor = Color.White,
-            Text = "Enter a word in a movie",
-            FontSize = 30
+            Text = "enter a word in a movie",
+            FontSize = 20
         };
 
 		private Entry _movieSearchEntry = new Entry
@@ -44,7 +56,8 @@ namespace vika3
 		private ActivityIndicator _progressBar = new ActivityIndicator
 		{
 			Color = Color.White,
-			IsRunning = false
+			IsRunning = false,
+			Margin = 20
 		};
 
 		public GreetingPage(Movies movies)
@@ -64,13 +77,14 @@ namespace vika3
                         {
                             Children =
                             {
-                                _greeting,
+								_please,    
+								_greeting,
                                 _movieSearchEntry
                             }
                         },
                         _searchButton,
-						_progressBar,
-                        _movieResult
+						_movieResult,
+						_progressBar
                 }   
             };
 
@@ -82,6 +96,7 @@ namespace vika3
         {
 			_progressBar.IsRunning = true;
 			_searchButton.IsEnabled = false;
+			_movieResult.Text = string.Empty;
 
 			_movies.AllMovies.Clear();
 
@@ -103,7 +118,7 @@ namespace vika3
 
 			if (this._movies.AllMovies.Count == 0)
 			{
-				await DisplayAlert("No results", string.Empty, "Ok");
+				_movieResult.Text = "No results for given word";
 			}
 			else
 			{

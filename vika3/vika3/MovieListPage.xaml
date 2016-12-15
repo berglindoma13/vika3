@@ -11,8 +11,7 @@
              Color = "Black"
              IsRunning="False"
              IsVisible="False"
-				Margin="20"
-            />
+			Margin="20"/>
     <ListView
       x:Name="listview"
       ItemsSource="{Binding AllMovies}"
@@ -37,29 +36,30 @@
                 Text="{Binding TitleYear}"
                 FontAttributes="Bold"
                 FontSize="Medium"
-                TextColor="#1f03e1"
+                TextColor="White"
                 LineBreakMode="TailTruncation">
-							<Label.FontFamily>
-						        <OnPlatform x:TypeArguments="x:String">
-						            <OnPlatform.iOS>AmericanTypewriter</OnPlatform.iOS>
-						            <OnPlatform.Android>serif</OnPlatform.Android>
-						            <OnPlatform.WinPhone></OnPlatform.WinPhone>
-						        </OnPlatform>
-						    </Label.FontFamily>
+					<Label.FontFamily>
+				        <OnPlatform x:TypeArguments="x:String">
+				            <OnPlatform.iOS>AmericanTypewriter</OnPlatform.iOS>
+				            <OnPlatform.Android>serif</OnPlatform.Android>
+				            <OnPlatform.WinPhone></OnPlatform.WinPhone>
+				        </OnPlatform>
+				    </Label.FontFamily>
 				</Label>
               <Label
                 Grid.Row="1"
                 Grid.Column="0"
                 Text="{Binding Actors}"
                 FontSize="Small"
+				TextColor="White"
                 LineBreakMode="TailTruncation">
-							<Label.FontFamily>
-						        <OnPlatform x:TypeArguments="x:String">
-						            <OnPlatform.iOS>AmericanTypewriter</OnPlatform.iOS>
-						            <OnPlatform.Android>serif</OnPlatform.Android>
-						            <OnPlatform.WinPhone></OnPlatform.WinPhone>
-						        </OnPlatform>
-						    </Label.FontFamily>
+					<Label.FontFamily>
+				        <OnPlatform x:TypeArguments="x:String">
+				            <OnPlatform.iOS>AmericanTypewriter</OnPlatform.iOS>
+				            <OnPlatform.Android>serif</OnPlatform.Android>
+				            <OnPlatform.WinPhone></OnPlatform.WinPhone>
+				        </OnPlatform>
+				    </Label.FontFamily>
 				</Label>
               <Image
                 Grid.Row="0"

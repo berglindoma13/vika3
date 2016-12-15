@@ -53,6 +53,7 @@ namespace vika3
 			if (i == null)
 			{
 				tmpmovie.ImageName = "http://efilipinowomen.com/wp-content/themes/innovation/assets/images/no-thumb-innovation_ruby_300x450.jpg";
+				tmpmovie.OriginalImageName = "http://efilipinowomen.com/wp-content/themes/innovation/assets/images/no-thumb-innovation_ruby_300x450.jpg";
 				tmpmovie.Id = 0;
 				tmpmovie.Year = 0;
 				tmpmovie.Title = "Title not found!";
@@ -65,6 +66,7 @@ namespace vika3
                 if (i.PosterPath == null)
 				{
 					tmpmovie.ImageName = "http://efilipinowomen.com/wp-content/themes/innovation/assets/images/no-thumb-innovation_ruby_300x450.jpg";
+					tmpmovie.OriginalImageName = "http://efilipinowomen.com/wp-content/themes/innovation/assets/images/no-thumb-innovation_ruby_300x450.jpg";
 				}
 				else 
 				{
