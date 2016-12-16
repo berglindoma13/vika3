@@ -13,6 +13,7 @@
              IsVisible="False"
 			Margin="20"/>
     <ListView
+      x:Name="listview"
       ItemsSource="{Binding AllMovies}"
       HasUnevenRows="true"
       ItemSelected="Listview_OnItemSelected"

@@ -19,6 +19,7 @@ namespace vika3
             {
                 Listview_OnItemSelected(sender,e);
             };
+            flowlistview.IsPullToRefreshEnabled = true;
         }
 
         public async Task PopularMovies()

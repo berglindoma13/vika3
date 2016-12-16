@@ -9,6 +9,8 @@ namespace vika3
 {
     public class App : Application
     {
+        private MovieListPage topRated;
+        private PopularMoviesPage popularMovies;
         public App()
         {
             MovieDbFactory.RegisterSettings(new ApiConnectionClass());
@@ -19,12 +21,12 @@ namespace vika3
             greetingNavigationPage.Icon = "searchicon";
             
 
-            var topRated = new MovieListPage();
+            topRated = new MovieListPage();
             var topRatedNavigationPage = new NavigationPage(topRated);
             topRatedNavigationPage.Title = "Top rated";
             topRatedNavigationPage.Icon = "toprated";
 
-            var popularMovies = new PopularMoviesPage();
+            popularMovies = new PopularMoviesPage();
             var popularMoviesNavigationPage = new NavigationPage(popularMovies);
             popularMoviesNavigationPage.Title = "Popular";
             popularMoviesNavigationPage.Icon = "popular";
@@ -37,7 +39,7 @@ namespace vika3
             tabbedPage.Children.Add(popularMoviesNavigationPage);
 
 
-            tabbedPage.CurrentPageChanged += async (sender, e) =>
+            /*tabbedPage.CurrentPageChanged += async (sender, e) =>
             {
 				tabbedPage.IsEnabled = false;
                 if (tabbedPage.CurrentPage == topRatedNavigationPage)
@@ -49,14 +51,16 @@ namespace vika3
                     await popularMovies.PopularMovies();
                 }
 				tabbedPage.IsEnabled = true;
-            };
+            };*/
 
             MainPage = tabbedPage;
         }
 
-        protected override void OnStart()
+        protected override async void OnStart()
         {
             // Handle when your app starts
+            await popularMovies.PopularMovies();
+            await topRated.TopRatedMovies();
         }
 
         protected override void OnSleep()

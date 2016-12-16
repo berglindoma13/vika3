@@ -13,6 +13,8 @@ namespace vika3
 		{
             _TopRatedMovies = new Movies();
 			InitializeComponent();
+ 
+		    listview.IsPullToRefreshEnabled = true;
 		}
 
 		private void Listview_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
