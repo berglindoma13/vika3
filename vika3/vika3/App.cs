@@ -59,8 +59,8 @@ namespace vika3
         protected override async void OnStart()
         {
             // Handle when your app starts
-            await popularMovies.PopularMovies();
-            await topRated.TopRatedMovies();
+			await topRated.TopRatedMovies();
+			await popularMovies.PopularMovies();
         }
 
         protected override void OnSleep()
