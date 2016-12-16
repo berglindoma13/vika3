@@ -61,7 +61,8 @@ namespace vika3
 		};
 
 		public GreetingPage(Movies movies)
-        {
+		{
+		    //Icon = "Search";
 			_movies = movies;
 
             BackgroundColor = Color.Teal;

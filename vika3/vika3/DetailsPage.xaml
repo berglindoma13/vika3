@@ -25,7 +25,7 @@
 			        </OnPlatform>
 			    </Label.FontFamily>
 	</Label>
-      <Label>
+      <Label
         Margin="4"
         Text="{Binding RuntimeGenre}"
 		FontSize="Medium"
