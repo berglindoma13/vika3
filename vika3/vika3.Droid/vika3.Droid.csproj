@@ -163,7 +163,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\popular.png" />
-    <Content Include="Resources\drawable\Search.png" />
     <AndroidResource Include="Resources\drawable\Splash.png" />
     <AndroidResource Include="Resources\drawable\toprated.png" />
     <AndroidResource Include="Resources\drawable\searchicon.png" />

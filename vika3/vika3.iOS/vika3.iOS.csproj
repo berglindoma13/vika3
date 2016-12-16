@@ -119,6 +119,7 @@
     <BundleResource Include="Resources\popular.png" />
     <BundleResource Include="Resources\Search.png" />
     <BundleResource Include="Resources\toprated.png" />
+    <BundleResource Include="Resources\searchicon.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
